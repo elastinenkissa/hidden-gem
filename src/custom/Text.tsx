@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { ThemeState } from '../util/types/theme';
 
 interface Props {
-  style?: Style
+  style?: Style;
   children: string;
   title?: boolean;
   bold?: boolean;
@@ -18,7 +18,7 @@ const Text: React.FC<Props> = ({ style, ...props }) => {
 
   const textStyle = [
     styles.default,
-    currentTheme === 'dark' && styles.dark,
+    currentTheme === 'dark' ? styles.dark : styles.default,
     props.title && styles.title,
     props.bold && styles.bold,
     style,
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   default: {
     fontSize: theme.text.size.default,
     color: theme.colors.default.text,
-    backgroundColor: theme.colors.default.background,
+    backgroundColor: theme.colors.default.background.primary,
   },
   dark: {
     color: theme.colors.dark.text,

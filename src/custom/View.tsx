@@ -16,7 +16,7 @@ const View: React.FC<Props> = ({ style, ...props }) => {
 
   const viewStyle = [
     styles.default,
-    currentTheme === 'dark' && styles.dark,
+    currentTheme === 'dark' ? styles.dark : styles.default,
     style,
   ];
 
@@ -28,7 +28,9 @@ const View: React.FC<Props> = ({ style, ...props }) => {
 };
 
 const styles = StyleSheet.create({
-  default: {},
+  default: {
+    backgroundColor: theme.colors.default.background.primary,
+  },
   dark: {
     backgroundColor: theme.colors.dark.background.primary,
   },

@@ -21,11 +21,14 @@ export const theme: Theme = {
   colors: {
     default: {
       text: '#20232a',
-      background: 'white',
+      background: {
+        primary: 'white',
+        secondary: '#e1e5e8',
+      },
       shadow: {
         shadowColor: '#171717',
         shadowOffset: { height: 5, width: 0 },
-        shadowOpacity: 0.1,
+        shadowOpacity: 0.05,
         shadowRadius: 8,
       },
     },
