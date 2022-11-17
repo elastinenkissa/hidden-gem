@@ -3,9 +3,11 @@ import { StyleSheet } from 'react-native';
 import { Button } from 'react-native-paper';
 import View from '../../custom/View';
 import { theme } from '../../theme';
+import { useSelector } from 'react-redux';
+import { ThemeState } from '../../util/types/theme';
 
 const AppBar: React.FC = () => {
-  const [currentTheme, setCurrentTheme] = React.useState<string>('');
+  const currentTheme = useSelector<ThemeState>((state) => state.theme);
 
   const getShadow = () =>
     currentTheme === 'dark'

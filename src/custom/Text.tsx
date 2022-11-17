@@ -1,19 +1,20 @@
 import React from 'react';
-import { StyleProp, StyleSheet, Text as NativeText } from 'react-native';
+import { StyleSheet, Text as NativeText } from 'react-native';
 import { theme } from '../theme';
+import { Spread, Style } from '../util/types/props';
+import { useSelector } from 'react-redux';
+import { ThemeState } from '../util/types/theme';
 
 interface Props {
-  style?: {
-    [prop: string]: any;
-  };
+  style?: Style
   children: string;
   title?: boolean;
   bold?: boolean;
-  [prop: string]: any;
+  [prop: string]: Spread;
 }
 
 const Text: React.FC<Props> = ({ style, ...props }) => {
-  const [currentTheme, setCurrentTheme] = React.useState<string>('');
+  const currentTheme = useSelector<ThemeState>((state) => state.theme);
 
   const textStyle = [
     styles.default,
