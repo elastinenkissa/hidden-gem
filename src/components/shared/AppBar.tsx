@@ -28,7 +28,8 @@ const AppBar: React.FC = () => {
     container: {
       height: 80,
       justifyContent: 'center',
-      textAlign: 'center',
+      flexDirection: 'row',
+      alignItems: 'center',
       ...getShadow(),
     },
     location: { height: 'auto' },

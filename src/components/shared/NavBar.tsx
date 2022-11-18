@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { ThemeState } from '../../util/types/theme';
 import Button from '../../custom/Button';
 import { theme } from '../../theme';
-import { StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
 
 interface Props {
@@ -33,7 +33,6 @@ const NavBar: React.FC<Props> = () => {
       height: 40,
     },
   });
-
 
   return (
     <View style={styles.container}>

@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet } from 'react-native';
-import { RadioButton } from 'react-native-paper';
+import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { RadioButton, Searchbar } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { theme } from '../../theme';
 import { setLocation } from '../../util/reducers/locationReducer';
 import { Country, LocationState } from '../../util/types/cities';
+import Constants from 'expo-constants';
 
 interface ItemProps {
   item: Country;
@@ -31,6 +32,8 @@ const LocationListItem: React.FC<ItemProps> = (props) => {
 
 const LocationList: React.FC<ListProps> = (props) => {
   const [countries, setCountries] = React.useState<Country[]>([]);
+  const [cities, setCities] = React.useState<Country[]>([]);
+  const [searchQuery, setSearchQuery] = React.useState<string>('');
 
   const dispatch = useDispatch();
 
@@ -59,15 +62,35 @@ const LocationList: React.FC<ListProps> = (props) => {
     props.onSelect();
   };
 
+  const searchHandler = (query: string) => {
+    setSearchQuery(query);
+    setCities(
+      countries.filter((country) =>
+        country?.capital?.toLowerCase().startsWith(query.toLocaleLowerCase())
+      )
+    );
+  };
+
   return (
-    <RadioButton.Group onValueChange={locationSelectHandler} value={location}>
-      {countries.map((country) => (
-        <LocationListItem
-          key={`${country.capital}, ${country.name}`}
-          item={country}
-        />
-      ))}
-    </RadioButton.Group>
+    <View>
+      <Searchbar
+        placeholder="Search a city..."
+        onChangeText={searchHandler}
+        value={searchQuery}
+      />
+      <RadioButton.Group onValueChange={locationSelectHandler} value={location}>
+        {searchQuery &&
+          cities.map(
+            (country) =>
+              country.capital !== undefined && (
+                <LocationListItem
+                  key={`${country.capital}, ${country.name}`}
+                  item={country}
+                />
+              )
+          )}
+      </RadioButton.Group>
+    </View>
   );
 };
 
@@ -75,8 +98,9 @@ const LocationSelector: React.FC<SelectorProps> = (props) => {
   const styles = StyleSheet.create({
     content: {
       margin: 30,
-      marginTop: 90,
+      marginTop: 90 + Constants.statusBarHeight,
       marginBottom: 70,
+      height: 'auto',
       backgroundColor: theme.colors.default.background.primary,
     },
   });
@@ -87,7 +111,6 @@ const LocationSelector: React.FC<SelectorProps> = (props) => {
 
   return (
     <Modal
-      onTouchEnd={visibilityChangeHandler}
       animationType="fade"
       transparent
       visible={props.visible}
