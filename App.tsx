@@ -37,9 +37,17 @@ const Layout: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <AppBar />
-      <Main />
-      <NavBar />
+      <>
+        <View>
+          <>
+            <AppBar />
+            <Main />
+          </>
+        </View>
+        <View>
+          <NavBar />
+        </View>
+      </>
     </View>
   );
 };

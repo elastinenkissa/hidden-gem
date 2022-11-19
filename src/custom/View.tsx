@@ -7,7 +7,7 @@ import { Spread, Style } from '../util/types/props';
 
 interface Props {
   style?: Style;
-  children: JSX.Element | JSX.Element[]
+  children: JSX.Element
   [prop: string]: Spread;
 }
 

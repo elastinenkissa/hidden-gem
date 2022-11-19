@@ -3,7 +3,6 @@ import { Spread, Style } from '../util/types/props';
 import { useSelector } from 'react-redux';
 import { ThemeState } from '../util/types/theme';
 import { theme } from '../theme';
-import { StyleSheet } from 'react-native';
 
 interface Props {
   style?: Style;

@@ -46,18 +46,20 @@ const AppBar: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Button
-        onPress={visibilityChangeHandler}
-        labelStyle={styles.locationText}
-        style={styles.location}
-        icon="map-marker"
-      >
-        {location ? location : 'Select a location'}
-      </Button>
-      <LocationSelector
-        onChangeVisibility={visibilityChangeHandler}
-        visible={visible}
-      />
+      <>
+        <Button
+          onPress={visibilityChangeHandler}
+          labelStyle={styles.locationText}
+          style={styles.location}
+          icon="map-marker"
+        >
+          {location ? location : 'Select a location'}
+        </Button>
+        <LocationSelector
+          onChangeVisibility={visibilityChangeHandler}
+          visible={visible}
+        />
+      </>
     </View>
   );
 };

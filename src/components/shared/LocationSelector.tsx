@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Modal, ScrollView, StyleSheet, View } from 'react-native';
 import { RadioButton, Searchbar } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { theme } from '../../theme';
@@ -73,23 +73,30 @@ const LocationList: React.FC<ListProps> = (props) => {
 
   return (
     <View>
-      <Searchbar
-        placeholder="Search a city..."
-        onChangeText={searchHandler}
-        value={searchQuery}
-      />
-      <RadioButton.Group onValueChange={locationSelectHandler} value={location}>
-        {searchQuery &&
-          cities.map(
-            (country) =>
-              country.capital !== undefined && (
-                <LocationListItem
-                  key={`${country.capital}, ${country.name}`}
-                  item={country}
-                />
-              )
-          )}
-      </RadioButton.Group>
+      <>
+        <Searchbar
+          placeholder="Search a city..."
+          onChangeText={searchHandler}
+          value={searchQuery}
+        />
+        <RadioButton.Group
+          onValueChange={locationSelectHandler}
+          value={location}
+        >
+          <>
+            {searchQuery &&
+              cities.map(
+                (country) =>
+                  country.capital !== undefined && (
+                    <LocationListItem
+                      key={`${country.capital}, ${country.name}`}
+                      item={country}
+                    />
+                  )
+              )}
+          </>
+        </RadioButton.Group>
+      </>
     </View>
   );
 };

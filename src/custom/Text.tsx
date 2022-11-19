@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: theme.text.size.title,
+    fontWeight: theme.text.weight.title
   },
   bold: {
     fontWeight: theme.text.weight.bold,
