@@ -26,11 +26,14 @@ const AppBar: React.FC = () => {
 
   const styles = StyleSheet.create({
     container: {
-      height: 80,
+      height: theme.dimensions.navigation.height * 2,
       justifyContent: 'center',
       flexDirection: 'row',
       alignItems: 'center',
-      ...getShadow(),
+      borderBottomColor: currentTheme === 'dark'
+      ? theme.colors.dark.border.color
+      : theme.colors.default.border.color,
+      borderBottomWidth: theme.dimensions.navigation.borderWidth
     },
     location: { height: 'auto' },
     locationText: {
@@ -46,7 +49,6 @@ const AppBar: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <>
         <Button
           onPress={visibilityChangeHandler}
           labelStyle={styles.locationText}
@@ -59,7 +61,6 @@ const AppBar: React.FC = () => {
           onChangeVisibility={visibilityChangeHandler}
           visible={visible}
         />
-      </>
     </View>
   );
 };

@@ -18,33 +18,29 @@ interface ShadowStyle {
 const NavBar: React.FC<Props> = () => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
 
-  const getShadow = (): ShadowStyle =>
-    currentTheme === 'dark'
-      ? { ...theme.colors.dark.shadow }
-      : { ...theme.colors.default.shadow };
-
   const styles = StyleSheet.create({
     container: {
-      ...getShadow(),
-      shadowOpacity: 0.5,
+      borderTopColor:
+        currentTheme === 'dark'
+          ? theme.colors.dark.border.color
+          : theme.colors.default.border.color,
+      borderTopWidth: theme.dimensions.navigation.borderWidth,
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
-      height: 40,
+      height: theme.dimensions.navigation.height,
     },
   });
 
   return (
     <View style={styles.container}>
-      <>
-        <Link to={'/'}>
-          <Button icon="home" />
-        </Link>
-        <Button icon="plus" />
-        <Link to={'/account'}>
-          <Button icon="account" />
-        </Link>
-      </>
+      <Link to={'/'}>
+        <Button icon="home" />
+      </Link>
+      <Button icon="plus" />
+      <Link to={'/account'}>
+        <Button icon="account" />
+      </Link>
     </View>
   );
 };

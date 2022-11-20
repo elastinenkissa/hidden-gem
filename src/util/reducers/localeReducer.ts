@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuid } from 'uuid';
 
 export interface LocaleStateObject {
   id: string;
   image: string;
   name: string;
   address: string;
+  city: string;
   description: string;
   coverImage: string;
-  gallery: string[];
-  reviews: string[];
+  gallery: Array<string>;
+  reviews: Array<string>;
 }
 
 export interface Action {
@@ -18,11 +18,11 @@ export interface Action {
 
 const initialLocales: LocaleStateObject[] = [
   {
-    id: uuid(),
+    id: Math.random().toString(),
     image: 'https://i.ytimg.com/vi/SiB6KEYRULQ/maxresdefault.jpg',
     name: 'AG Club',
-    address:
-      'Patriotske lige 30, Sarajevo, Federation Of Bosnia And Herzegovina 71000',
+    address: 'Patriotske lige 30',
+    city: 'Sarajevo',
     description:
       'A nice pub for students and young people to hang out and listen to rock music at.',
     coverImage:
@@ -31,11 +31,11 @@ const initialLocales: LocaleStateObject[] = [
     reviews: [],
   },
   {
-    id: uuid(),
+    id: Math.random().toString(),
     image: 'https://i.ytimg.com/vi/SiB6KEYRULQ/maxresdefault.jpg',
     name: 'AG Club',
-    address:
-      'Patriotske lige 30, Sarajevo, Federation Of Bosnia And Herzegovina 71000',
+    address: 'Patriotske lige 30',
+    city: 'Sarajevo',
     description:
       'A nice pub for students and young people to hang out and listen to rock music at.',
     coverImage:
@@ -44,11 +44,11 @@ const initialLocales: LocaleStateObject[] = [
     reviews: [],
   },
   {
-    id: uuid(),
+    id: Math.random().toString(),
     image: 'https://i.ytimg.com/vi/SiB6KEYRULQ/maxresdefault.jpg',
     name: 'AG Club',
-    address:
-      'Patriotske lige 30, Sarajevo, Federation Of Bosnia And Herzegovina 71000',
+    address: 'Patriotske lige 30',
+    city: 'Sarajevo',
     description:
       'A nice pub for students and young people to hang out and listen to rock music at.',
     coverImage:
@@ -57,11 +57,11 @@ const initialLocales: LocaleStateObject[] = [
     reviews: [],
   },
   {
-    id: uuid(),
+    id: Math.random().toString(),
     image: 'https://i.ytimg.com/vi/SiB6KEYRULQ/maxresdefault.jpg',
     name: 'AG Club',
-    address:
-      'Patriotske lige 30, Sarajevo, Federation Of Bosnia And Herzegovina 71000',
+    address: 'Patriotske lige 30',
+    city: 'Sarajevo',
     description:
       'A nice pub for students and young people to hang out and listen to rock music at.',
     coverImage:
@@ -70,11 +70,11 @@ const initialLocales: LocaleStateObject[] = [
     reviews: [],
   },
   {
-    id: uuid(),
+    id: Math.random().toString(),
     image: 'https://i.ytimg.com/vi/SiB6KEYRULQ/maxresdefault.jpg',
     name: 'AG Club',
-    address:
-      'Patriotske lige 30, Sarajevo, Federation Of Bosnia And Herzegovina 71000',
+    address: 'Patriotske lige 30',
+    city: 'Sarajevo',
     description:
       'A nice pub for students and young people to hang out and listen to rock music at.',
     coverImage:
@@ -83,11 +83,11 @@ const initialLocales: LocaleStateObject[] = [
     reviews: [],
   },
   {
-    id: uuid(),
+    id: Math.random().toString(),
     image: 'https://i.ytimg.com/vi/SiB6KEYRULQ/maxresdefault.jpg',
     name: 'AG Club',
-    address:
-      'Patriotske lige 30, Sarajevo, Federation Of Bosnia And Herzegovina 71000',
+    address: 'Patriotske lige 30',
+    city: 'Sarajevo',
     description:
       'A nice pub for students and young people to hang out and listen to rock music at.',
     coverImage:

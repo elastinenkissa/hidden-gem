@@ -25,6 +25,11 @@ const Layout: React.FC = () => {
       height: '100%',
       paddingTop: Constants.statusBarHeight,
     },
+    navbar: {
+      position: 'absolute',
+      bottom: 0,
+      width: '100%'
+    }
   });
 
   const dispatch = useDispatch();
@@ -37,17 +42,13 @@ const Layout: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <>
-        <View>
-          <>
-            <AppBar />
-            <Main />
-          </>
-        </View>
-        <View>
-          <NavBar />
-        </View>
-      </>
+      <View>
+        <AppBar />
+        <Main />
+      </View>
+      <View style={styles.navbar}>
+        <NavBar />
+      </View>
     </View>
   );
 };

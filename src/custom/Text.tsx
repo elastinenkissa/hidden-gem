@@ -10,6 +10,7 @@ interface Props {
   children: string;
   title?: boolean;
   bold?: boolean;
+  ghost?: boolean;
   [prop: string]: Spread;
 }
 
@@ -21,6 +22,8 @@ const Text: React.FC<Props> = ({ style, ...props }) => {
     currentTheme === 'dark' ? styles.dark : styles.default,
     props.title && styles.title,
     props.bold && styles.bold,
+    props.ghost && currentTheme === 'dark' && styles.lighterDark,
+    props.ghost && currentTheme === 'light' && styles.darkerLight,
     style,
   ];
 
@@ -43,11 +46,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: theme.text.size.title,
-    fontWeight: theme.text.weight.title
+    fontWeight: theme.text.weight.title,
   },
   bold: {
     fontWeight: theme.text.weight.bold,
   },
+  lighterDark: { backgroundColor: theme.colors.dark.background.secondary },
+  darkerLight: { backgroundColor: theme.colors.default.background.secondary },
 });
 
 export default Text;

@@ -13,11 +13,16 @@ export const theme: Theme = {
       title: 20,
     },
     weight: {
-      default: 300,
-      title: 800,
+      default: 'normal',
+      title: 'bold',
     },
   },
-  position: {},
+  dimensions: {
+    navigation: {
+      height: 40,
+      borderWidth: 0.2
+    },
+  },
   colors: {
     default: {
       text: '#20232a',
@@ -25,11 +30,8 @@ export const theme: Theme = {
         primary: 'white',
         secondary: '#e1e5e8',
       },
-      shadow: {
-        shadowColor: '#171717',
-        shadowOffset: { height: 5, width: 0 },
-        shadowOpacity: 0.05,
-        shadowRadius: 8,
+      border: {
+        color: '#9c9ea2',
       },
     },
     dark: {
@@ -38,11 +40,8 @@ export const theme: Theme = {
         primary: '#20232a',
         secondary: '#272a31',
       },
-      shadow: {
-        shadowColor: '#171717',
-        shadowOffset: { height: 1, width: 0 },
-        shadowOpacity: 0.5,
-        shadowRadius: 10,
+      border: {
+        color: '#9c9ea2',
       },
     },
   },

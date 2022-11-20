@@ -15,7 +15,7 @@ const ItemSeparator: React.FC = () => {
           : theme.colors.default.background.secondary,
     },
   });
-  return <View style={styles.separator} />;
+  return <View style={styles.separator}></View>;
 };
 
 export default ItemSeparator;

@@ -1,30 +1,38 @@
 import { FlatList, Image, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-native';
+import NoPlaces from '../../components/locale/NoPlaces';
 import ItemSeparator from '../../custom/ItemSeperator';
 import Text from '../../custom/Text';
 import View from '../../custom/View';
+import { theme } from '../../theme';
+import { useLocale } from '../../util/hooks/useLocale';
 import { LocaleStateObject } from '../../util/reducers/localeReducer';
-import { LocaleState } from '../../util/types/locales';
+import { LocationState } from '../../util/types/cities';
+import { LocalesType, LocaleState } from '../../util/types/locales';
 
 interface LocaleItemProps {
   item: LocaleStateObject;
 }
 
 const LocaleItem: React.FC<LocaleItemProps> = (props) => {
+  const imageDimensions = 100;
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
-      overflow: 'visible'
+      marginTop: theme.dimensions.navigation.height / 2,
+      marginBottom: theme.dimensions.navigation.height / 2,
     },
     image: {
-      borderRadius: 100,
-      width: 100,
-      height: 100,
+      borderRadius: imageDimensions / 2,
+      width: imageDimensions,
+      height: imageDimensions,
       margin: 15,
     },
     textContainer: {
       justifyContent: 'space-around',
+      flexShrink: 1,
+      marginRight: 15,
     },
   });
 
@@ -35,10 +43,8 @@ const LocaleItem: React.FC<LocaleItemProps> = (props) => {
           <Image style={styles.image} source={{ uri: props.item.image }} />
         </View>
         <View style={styles.textContainer}>
-          <>
-            <Text title>{props.item.name}</Text>
-            <Text>{props.item.description}</Text>
-          </>
+          <Text title>{props.item.name}</Text>
+          <Text>{props.item.description}</Text>
         </View>
       </>
     </Link>
@@ -46,15 +52,24 @@ const LocaleItem: React.FC<LocaleItemProps> = (props) => {
 };
 
 const Locales: React.FC = () => {
-  const locales = useSelector<LocaleState>(
-    (state) => state.locales
-  ) as LocaleStateObject[];
+  const styles = StyleSheet.create({
+    list: {
+      // top: 0
+    },
+  });
+
+  const locales = useLocale();
 
   return (
     <FlatList
+      style={styles.list}
       data={locales}
       ItemSeparatorComponent={ItemSeparator}
-      renderItem={({ item }) => <LocaleItem key={item.id} item={item} />}
+      renderItem={({ item }: { item: LocaleStateObject }) => (
+        <LocaleItem item={item} />
+      )}
+      keyExtractor={(item) => item.id}
+      ListEmptyComponent={NoPlaces}
     />
   );
 };

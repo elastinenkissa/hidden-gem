@@ -83,18 +83,16 @@ const LocationList: React.FC<ListProps> = (props) => {
           onValueChange={locationSelectHandler}
           value={location}
         >
-          <>
-            {searchQuery &&
-              cities.map(
-                (country) =>
-                  country.capital !== undefined && (
-                    <LocationListItem
-                      key={`${country.capital}, ${country.name}`}
-                      item={country}
-                    />
-                  )
-              )}
-          </>
+          {searchQuery &&
+            cities.map(
+              (country) =>
+                country.capital !== undefined && (
+                  <LocationListItem
+                    key={`${country.capital}, ${country.name}`}
+                    item={country}
+                  />
+                )
+            )}
         </RadioButton.Group>
       </>
     </View>

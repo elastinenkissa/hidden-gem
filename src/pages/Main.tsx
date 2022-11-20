@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-native';
 import View from '../custom/View';
 import AccountSettings from './account/AccountSettings';
 import Locales from './locale/Locales';
+import LocaleView from './locale/LocaleView';
 
 const Main: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const Main: React.FC = () => {
       <Routes>
         <Route path="/" element={<Locales />} />
         <Route path="/account" element={<AccountSettings />} />
+        <Route path="/locales/:id" element={<LocaleView />} />
         <Route path="*" element={<Navigate to={'/'} replace />} />
       </Routes>
     </View>

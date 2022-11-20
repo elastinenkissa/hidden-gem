@@ -7,7 +7,8 @@ import { Spread, Style } from '../util/types/props';
 
 interface Props {
   style?: Style;
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[];
+  ghost?: boolean;
   [prop: string]: Spread;
 }
 
@@ -17,6 +18,8 @@ const View: React.FC<Props> = ({ style, ...props }) => {
   const viewStyle = [
     styles.default,
     currentTheme === 'dark' ? styles.dark : styles.default,
+    props.ghost && currentTheme === 'dark' && styles.lighterDark,
+    props.ghost && currentTheme === 'light' && styles.darkerLight,
     style,
   ];
 
@@ -34,6 +37,8 @@ const styles = StyleSheet.create({
   dark: {
     backgroundColor: theme.colors.dark.background.primary,
   },
+  lighterDark: { backgroundColor: theme.colors.dark.background.secondary },
+  darkerLight: { backgroundColor: theme.colors.default.background.secondary },
 });
 
 export default View;
