@@ -8,21 +8,12 @@ import Button from '../../custom/Button';
 import { LocationState } from '../../util/types/cities';
 import LocationSelector from './LocationSelector';
 
-interface ShadowStyle {
-  [prop: string]: string;
-}
-
 const AppBar: React.FC = () => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
 
   const location = useSelector<LocationState>(
     (state) => state.location
   ) as string;
-
-  const getShadow = (): ShadowStyle =>
-    currentTheme === 'dark'
-      ? { ...theme.colors.dark.shadow }
-      : { ...theme.colors.default.shadow };
 
   const styles = StyleSheet.create({
     container: {
