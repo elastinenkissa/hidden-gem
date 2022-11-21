@@ -1,5 +1,4 @@
 import { FlatList, Image, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-native';
 import NoPlaces from '../../components/locale/NoPlaces';
 import ItemSeparator from '../../custom/ItemSeperator';
@@ -8,8 +7,6 @@ import View from '../../custom/View';
 import { theme } from '../../theme';
 import { useLocale } from '../../util/hooks/useLocale';
 import { LocaleStateObject } from '../../util/reducers/localeReducer';
-import { LocationState } from '../../util/types/cities';
-import { LocalesType, LocaleState } from '../../util/types/locales';
 
 interface LocaleItemProps {
   item: LocaleStateObject;
@@ -52,17 +49,11 @@ const LocaleItem: React.FC<LocaleItemProps> = (props) => {
 };
 
 const Locales: React.FC = () => {
-  const styles = StyleSheet.create({
-    list: {
-      // top: 0
-    },
-  });
 
   const locales = useLocale();
 
   return (
     <FlatList
-      style={styles.list}
       data={locales}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={({ item }: { item: LocaleStateObject }) => (
