@@ -7,7 +7,7 @@ const store = configureStore({
   reducer: {
     theme: themeReducer,
     location: locationReducer,
-    locales: localeReducer
+    locales: localeReducer,
   },
 });
 

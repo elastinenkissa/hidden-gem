@@ -11,10 +11,6 @@ interface Props {
   style?: Style;
 }
 
-interface ShadowStyle {
-  [prop: string]: string;
-}
-
 const NavBar: React.FC<Props> = () => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
 

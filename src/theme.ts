@@ -20,7 +20,7 @@ export const theme: Theme = {
   dimensions: {
     navigation: {
       height: 40,
-      borderWidth: 0.2
+      borderWidth: 0.2,
     },
   },
   colors: {

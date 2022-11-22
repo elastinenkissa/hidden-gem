@@ -1,8 +1,7 @@
-import ThemeChange from "../../components/account/ThemeChange"
-
+import ThemeChange from '../../components/account/ThemeChange';
 
 const AccountSettings: React.FC = () => {
-return <ThemeChange />
-}
+  return <ThemeChange />;
+};
 
-export default AccountSettings
+export default AccountSettings;

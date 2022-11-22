@@ -19,11 +19,14 @@ const LocaleView: React.FC = () => {
   return (
     <View>
       <View>
-        <Image style={{ width: '100%', height: 150 }} source={{ uri: locale.coverImage }} />
+        <Image
+          style={{ width: '100%', height: 150 }}
+          source={{ uri: locale.coverImage }}
+        />
       </View>
       <View>
         <Text>{locale.name}</Text>
-        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+        <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
           <Button>About</Button>
           <Button>Gallery</Button>
           <Button>Reviews</Button>
@@ -31,10 +34,10 @@ const LocaleView: React.FC = () => {
         </View>
       </View>
       <View>
-        <View style={{alignItems: 'center'}}>
+        <View style={{ alignItems: 'center' }}>
           <Text>{locale.description}</Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <Text>{`${locale.reviews.length.toString()} ratings`}</Text>
           <Text>75 (placeholder)</Text>
           <View>

@@ -49,7 +49,6 @@ const LocaleItem: React.FC<LocaleItemProps> = (props) => {
 };
 
 const Locales: React.FC = () => {
-
   const locales = useLocale();
 
   return (

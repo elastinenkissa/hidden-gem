@@ -1,8 +1,7 @@
-import { LocaleStateObject } from "../reducers/localeReducer";
-
+import { LocaleStateObject } from '../reducers/localeReducer';
 
 export interface LocaleState {
-    locales: LocaleStateObject[]
+  locales: LocaleStateObject[];
 }
 
-export type LocalesType = Array<LocaleStateObject>
+export type LocalesType = Array<LocaleStateObject>;

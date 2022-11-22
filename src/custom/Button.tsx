@@ -6,7 +6,7 @@ import { theme } from '../theme';
 
 interface Props {
   style?: Style;
-  children?: string
+  children?: string;
   [prop: string]: Spread;
 }
 
@@ -29,6 +29,5 @@ const Button: React.FC<Props> = ({ style, ...props }) => {
     </PaperButton>
   );
 };
-
 
 export default Button;

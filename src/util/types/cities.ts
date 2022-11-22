@@ -1,5 +1,5 @@
 export interface LocationState {
-  location: string
+  location: string;
 }
 
 export interface Country {

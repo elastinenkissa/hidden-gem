@@ -21,10 +21,11 @@ const AppBar: React.FC = () => {
       justifyContent: 'center',
       flexDirection: 'row',
       alignItems: 'center',
-      borderBottomColor: currentTheme === 'dark'
-      ? theme.colors.dark.border.color
-      : theme.colors.default.border.color,
-      borderBottomWidth: theme.dimensions.navigation.borderWidth
+      borderBottomColor:
+        currentTheme === 'dark'
+          ? theme.colors.dark.border.color
+          : theme.colors.default.border.color,
+      borderBottomWidth: theme.dimensions.navigation.borderWidth,
     },
     location: { height: 'auto' },
     locationText: {
@@ -40,18 +41,18 @@ const AppBar: React.FC = () => {
 
   return (
     <View style={styles.container}>
-        <Button
-          onPress={visibilityChangeHandler}
-          labelStyle={styles.locationText}
-          style={styles.location}
-          icon="map-marker"
-        >
-          {location ? location : 'Select a location'}
-        </Button>
-        <LocationSelector
-          onChangeVisibility={visibilityChangeHandler}
-          visible={visible}
-        />
+      <Button
+        onPress={visibilityChangeHandler}
+        labelStyle={styles.locationText}
+        style={styles.location}
+        icon="map-marker"
+      >
+        {location ? location : 'Select a location'}
+      </Button>
+      <LocationSelector
+        onChangeVisibility={visibilityChangeHandler}
+        visible={visible}
+      />
     </View>
   );
 };
