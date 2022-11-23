@@ -8,7 +8,7 @@ export interface Action {
 
 const themeSlice = createSlice({
   name: 'theme',
-  initialState: 'dark',
+  initialState: '',
   reducers: {
     setTheme(_state: State, action: Action) {
       return action.payload;
