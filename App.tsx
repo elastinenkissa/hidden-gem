@@ -7,7 +7,7 @@ import NavBar from './src/components/shared/NavBar';
 import { StyleSheet, useColorScheme } from 'react-native';
 import View from './src/custom/View';
 import { NativeRouter } from 'react-router-native';
-import { ThemeState } from "./src/util/types/theme";
+import { ThemeState } from './src/util/types/theme';
 import { theme } from './src/theme';
 import { setTheme } from './src/util/reducers/themeReducer';
 import Constants from 'expo-constants';
