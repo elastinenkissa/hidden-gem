@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './store';
 import Main from './src/pages/Main';
-import AppBar from './src/components/shared/AppBar';
+import AppBar from './src/components/shared/Navigation/AppBar';
 import NavBar from './src/components/shared/NavBar';
 import { StyleSheet, useColorScheme } from 'react-native';
 import View from './src/custom/View';

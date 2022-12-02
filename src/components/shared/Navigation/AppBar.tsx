@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import View from '../../custom/View';
-import { theme } from '../../theme';
+import View from '../../../custom/View';
+import { theme } from '../../../theme';
 import { useSelector } from 'react-redux';
-import { ThemeState } from '../../util/types/theme';
-import Button from '../../custom/Button';
-import { LocationState } from '../../util/types/cities';
+import { ThemeState } from '../../../util/types/theme';
+import Button from '../../../custom/Button';
+import { LocationState } from '../../../util/types/cities';
 import LocationSelector from './LocationSelector';
 
 const AppBar: React.FC = () => {

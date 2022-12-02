@@ -1,11 +1,14 @@
-import View from '../../custom/View';
-import { Style } from '../../util/types/props';
-import { useSelector } from 'react-redux';
-import { ThemeState } from '../../util/types/theme';
-import Button from '../../custom/Button';
-import { theme } from '../../theme';
 import { StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
+import { useSelector } from 'react-redux';
+
+import { Style } from '../../../util/types/props';
+import { ThemeState } from '../../../util/types/theme';
+
+import { theme } from '../../../theme';
+
+import View from '../../../custom/View';
+import Button from '../../../custom/Button';
 
 interface Props {
   style?: Style;
@@ -24,8 +27,8 @@ const NavBar: React.FC<Props> = () => {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
-      height: theme.dimensions.navigation.height,
-    },
+      height: theme.dimensions.navigation.height
+    }
   });
 
   return (
