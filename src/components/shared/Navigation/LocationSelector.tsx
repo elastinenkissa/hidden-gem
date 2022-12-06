@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import Constants from 'expo-constants';
 import { Modal, ScrollView, StyleSheet, View } from 'react-native';
@@ -53,28 +52,23 @@ const LocationList: React.FC<ListProps> = (props) => {
 
   return (
     <View>
-      <>
-        <Searchbar
-          placeholder="Search a city..."
-          onChangeText={searchHandler}
-          value={searchQuery}
-        />
-        <RadioButton.Group
-          onValueChange={locationSelectHandler}
-          value={location}
-        >
-          {searchQuery &&
-            cities.map(
-              (country) =>
-                country.capital !== undefined && (
-                  <LocationListItem
-                    key={`${country.capital}, ${country.name}`}
-                    item={country}
-                  />
-                )
-            )}
-        </RadioButton.Group>
-      </>
+      <Searchbar
+        placeholder="Search a city..."
+        onChangeText={searchHandler}
+        value={searchQuery}
+      />
+      <RadioButton.Group onValueChange={locationSelectHandler} value={location}>
+        {searchQuery &&
+          cities.map(
+            (country) =>
+              country.capital !== undefined && (
+                <LocationListItem
+                  key={`${country.capital}, ${country.name}`}
+                  item={country}
+                />
+              )
+          )}
+      </RadioButton.Group>
     </View>
   );
 };

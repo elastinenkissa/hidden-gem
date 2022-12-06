@@ -9,6 +9,7 @@ import Button from '../../components/shared/Custom/Button';
 
 import { LocaleState } from '../../util/types/locales';
 import { LocaleStateObject } from '../../util/reducers/localeReducer';
+import Header from '../../components/locale/Header';
 
 const LocaleView: React.FC = () => {
   const { id } = useParams();
@@ -17,21 +18,17 @@ const LocaleView: React.FC = () => {
     (state) => state.locales
   ) as LocaleStateObject[];
 
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const locale = locales.find((locale) => locale.id === id)!;
 
   return (
     <View>
-      {/* <View>
-        <Image style={{ height: 150, width: '100%' }} source={{ uri: locale.coverImage }} />
-      </View>
       <View>
-        <Text>{locale.name}</Text>
-        <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-          <Button>About</Button>
-          <Button>Gallery</Button>
-          <Button>Reviews</Button>
-          <Button>Map</Button>
-        </View>
+        <Image style={styles.image} source={{ uri: locale.coverImage }} />
+      </View>
+      <Header locale={locale} />
+      {/* 
+      
       </View>
       <View>
         <View style={{ alignItems: 'center' }}>
@@ -50,5 +47,9 @@ const LocaleView: React.FC = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  image: { height: 150, width: '100%' }
+});
 
 export default LocaleView;
