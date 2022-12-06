@@ -1,11 +1,14 @@
-import { Image } from 'react-native';
+import React from 'react';
+import { Image, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-native';
-import View from '../../custom/View';
+
+import View from '../../components/shared/Custom/View';
+import Text from '../../components/shared/Custom/Text';
+import Button from '../../components/shared/Custom/Button';
+
 import { LocaleState } from '../../util/types/locales';
 import { LocaleStateObject } from '../../util/reducers/localeReducer';
-import Text from '../../custom/Text';
-import Button from '../../custom/Button';
 
 const LocaleView: React.FC = () => {
   const { id } = useParams();
@@ -18,11 +21,8 @@ const LocaleView: React.FC = () => {
 
   return (
     <View>
-      <View>
-        <Image
-          style={{ width: '100%', height: 150 }}
-          source={{ uri: locale.coverImage }}
-        />
+      {/* <View>
+        <Image style={{ height: 150, width: '100%' }} source={{ uri: locale.coverImage }} />
       </View>
       <View>
         <Text>{locale.name}</Text>
@@ -46,7 +46,7 @@ const LocaleView: React.FC = () => {
             <Text>1 bad (placeholder)</Text>
           </View>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };

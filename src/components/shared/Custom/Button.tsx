@@ -1,8 +1,11 @@
+import React from 'react';
 import { Button as PaperButton } from 'react-native-paper';
-import { Spread, Style } from '../util/types/props';
 import { useSelector } from 'react-redux';
-import { ThemeState } from '../util/types/theme';
-import { theme } from '../theme';
+
+import { Spread, Style } from '../../../util/types/props';
+import { ThemeState } from '../../../util/types/theme';
+
+import { theme } from '../../../theme';
 
 interface Props {
   style?: Style;

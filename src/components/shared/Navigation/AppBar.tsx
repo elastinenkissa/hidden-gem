@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import View from '../../../custom/View';
-import { theme } from '../../../theme';
 import { useSelector } from 'react-redux';
-import { ThemeState } from '../../../util/types/theme';
-import Button from '../../../custom/Button';
-import { LocationState } from '../../../util/types/cities';
+
+import View from '../Custom/View';
+import Button from '../Custom/Button';
 import LocationSelector from './LocationSelector';
+
+import { ThemeState } from '../../../util/types/theme';
+import { LocationState } from '../../../util/types/cities';
+
+import { theme } from '../../../theme';
 
 const AppBar: React.FC = () => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
@@ -17,20 +20,20 @@ const AppBar: React.FC = () => {
 
   const styles = StyleSheet.create({
     container: {
-      height: theme.dimensions.navigation.height * 2,
-      justifyContent: 'center',
-      flexDirection: 'row',
       alignItems: 'center',
       borderBottomColor:
         currentTheme === 'dark'
           ? theme.colors.dark.border.color
           : theme.colors.default.border.color,
       borderBottomWidth: theme.dimensions.navigation.borderWidth,
+      flexDirection: 'row',
+      height: theme.dimensions.navigation.height * 2,
+      justifyContent: 'center'
     },
     location: { height: 'auto' },
     locationText: {
-      fontSize: 18,
-    },
+      fontSize: 18
+    }
   });
 
   const [visible, setVisible] = React.useState<boolean>(false);

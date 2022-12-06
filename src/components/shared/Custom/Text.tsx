@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text as NativeText } from 'react-native';
-import { theme } from '../theme';
-import { Spread, Style } from '../util/types/props';
 import { useSelector } from 'react-redux';
-import { ThemeState } from '../util/types/theme';
+
+import { Spread, Style } from '../../../util/types/props';
+import { ThemeState } from '../../../util/types/theme';
+
+import { theme } from '../../../theme';
 
 interface Props {
   style?: Style;
@@ -24,7 +26,7 @@ const Text: React.FC<Props> = ({ style, ...props }) => {
     props.bold && styles.bold,
     props.ghost && currentTheme === 'dark' && styles.lighterDark,
     props.ghost && currentTheme === 'light' && styles.darkerLight,
-    style,
+    style
   ];
 
   return (
@@ -35,24 +37,24 @@ const Text: React.FC<Props> = ({ style, ...props }) => {
 };
 
 const styles = StyleSheet.create({
-  default: {
-    fontSize: theme.text.size.default,
-    color: theme.colors.default.text,
-    backgroundColor: theme.colors.default.background.primary,
+  bold: {
+    fontWeight: theme.text.weight.bold
   },
   dark: {
-    color: theme.colors.dark.text,
     backgroundColor: theme.colors.dark.background.primary,
+    color: theme.colors.dark.text
   },
-  title: {
-    fontSize: theme.text.size.title,
-    fontWeight: theme.text.weight.title,
-  },
-  bold: {
-    fontWeight: theme.text.weight.bold,
+  darkerLight: { backgroundColor: theme.colors.default.background.secondary },
+  default: {
+    backgroundColor: theme.colors.default.background.primary,
+    color: theme.colors.default.text,
+    fontSize: theme.text.size.default
   },
   lighterDark: { backgroundColor: theme.colors.dark.background.secondary },
-  darkerLight: { backgroundColor: theme.colors.default.background.secondary },
+  title: {
+    fontSize: theme.text.size.title,
+    fontWeight: theme.text.weight.title
+  }
 });
 
 export default Text;

@@ -1,12 +1,16 @@
+import React from 'react';
 import { FlatList, Image, StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
+
 import NoPlaces from '../../components/locale/NoPlaces';
-import ItemSeparator from '../../custom/ItemSeperator';
-import Text from '../../custom/Text';
-import View from '../../custom/View';
-import { theme } from '../../theme';
+import ItemSeparator from '../../components/shared/Custom/ItemSeperator';
+import Text from '../../components/shared/Custom/Text';
+import View from '../../components/shared/Custom/View';
+
 import { useLocale } from '../../util/hooks/useLocale';
 import { LocaleStateObject } from '../../util/reducers/localeReducer';
+
+import { theme } from '../../theme';
 
 interface LocaleItemProps {
   item: LocaleStateObject;
@@ -17,20 +21,20 @@ const LocaleItem: React.FC<LocaleItemProps> = (props) => {
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
-      marginTop: theme.dimensions.navigation.height / 2,
       marginBottom: theme.dimensions.navigation.height / 2,
+      marginTop: theme.dimensions.navigation.height / 2
     },
     image: {
       borderRadius: imageDimensions / 2,
-      width: imageDimensions,
       height: imageDimensions,
       margin: 15,
+      width: imageDimensions
     },
     textContainer: {
-      justifyContent: 'space-around',
       flexShrink: 1,
-      marginRight: 15,
-    },
+      justifyContent: 'space-around',
+      marginRight: 15
+    }
   });
 
   return (

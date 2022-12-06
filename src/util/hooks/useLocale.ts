@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+
 import { LocaleStateObject } from '../reducers/localeReducer';
 import { LocationState } from '../types/cities';
 import { LocaleState } from '../types/locales';

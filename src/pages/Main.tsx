@@ -1,5 +1,7 @@
+import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-native';
-import View from '../custom/View';
+
+import View from '../components/shared/Custom/View';
 import AccountSettings from './account/AccountSettings';
 import Locales from './locale/Locales';
 import LocaleView from './locale/LocaleView';

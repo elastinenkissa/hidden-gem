@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, View as NativeView } from 'react-native';
-import { theme } from '../theme';
-import { ThemeState } from '../util/types/theme';
 import { useSelector } from 'react-redux';
-import { Spread, Style } from '../util/types/props';
+
+import { ThemeState } from '../../../util/types/theme';
+import { Spread, Style } from '../../../util/types/props';
+
+import { theme } from '../../../theme';
 
 interface Props {
   style?: Style;
@@ -20,7 +22,7 @@ const View: React.FC<Props> = ({ style, ...props }) => {
     currentTheme === 'dark' ? styles.dark : styles.default,
     props.ghost && currentTheme === 'dark' && styles.lighterDark,
     props.ghost && currentTheme === 'light' && styles.darkerLight,
-    style,
+    style
   ];
 
   return (
@@ -31,14 +33,14 @@ const View: React.FC<Props> = ({ style, ...props }) => {
 };
 
 const styles = StyleSheet.create({
-  default: {
-    backgroundColor: theme.colors.default.background.primary,
-  },
   dark: {
-    backgroundColor: theme.colors.dark.background.primary,
+    backgroundColor: theme.colors.dark.background.primary
   },
-  lighterDark: { backgroundColor: theme.colors.dark.background.secondary },
   darkerLight: { backgroundColor: theme.colors.default.background.secondary },
+  default: {
+    backgroundColor: theme.colors.default.background.primary
+  },
+  lighterDark: { backgroundColor: theme.colors.dark.background.secondary }
 });
 
 export default View;

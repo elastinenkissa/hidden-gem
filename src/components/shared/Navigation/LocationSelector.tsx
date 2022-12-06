@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React from 'react';
+import Constants from 'expo-constants';
 import { Modal, ScrollView, StyleSheet, View } from 'react-native';
 import { RadioButton, Searchbar } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import { theme } from '../../theme';
-import { setLocation } from '../../util/reducers/locationReducer';
-import { Country, LocationState } from '../../util/types/cities';
-import Constants from 'expo-constants';
+
+import { setLocation } from '../../../util/reducers/locationReducer';
+import { Country, LocationState } from '../../../util/types/cities';
+
+import { theme } from '../../../theme';
+import { useLocations } from '../../../util/hooks/useLocations';
 
 interface ItemProps {
   item: Country;
@@ -31,31 +34,13 @@ const LocationListItem: React.FC<ItemProps> = (props) => {
 };
 
 const LocationList: React.FC<ListProps> = (props) => {
-  const [countries, setCountries] = React.useState<Country[]>([]);
-  const [cities, setCities] = React.useState<Country[]>([]);
-  const [searchQuery, setSearchQuery] = React.useState<string>('');
-
   const dispatch = useDispatch();
 
   const location = useSelector<LocationState>(
     (state) => state.location
   ) as string;
 
-  const getCountries = async (): Promise<void> => {
-    const response = await axios.get<Country[]>(
-      'https://restcountries.com/v2/all?fields=name,capital'
-    );
-    setCountries(response.data);
-  };
-
-  React.useEffect(() => {
-    const abortCtrl = new AbortController();
-    getCountries();
-
-    return () => {
-      abortCtrl.abort();
-    };
-  }, []);
+  const { cities, search, searchQuery } = useLocations();
 
   const locationSelectHandler = (city: string): void => {
     dispatch(setLocation(city));
@@ -63,12 +48,7 @@ const LocationList: React.FC<ListProps> = (props) => {
   };
 
   const searchHandler = (query: string) => {
-    setSearchQuery(query);
-    setCities(
-      countries.filter((country) =>
-        country?.capital?.toLowerCase().startsWith(query.toLocaleLowerCase())
-      )
-    );
+    search(query);
   };
 
   return (
@@ -102,12 +82,12 @@ const LocationList: React.FC<ListProps> = (props) => {
 const LocationSelector: React.FC<SelectorProps> = (props) => {
   const styles = StyleSheet.create({
     content: {
-      margin: 30,
-      marginTop: 90 + Constants.statusBarHeight,
-      marginBottom: 70,
-      height: 'auto',
       backgroundColor: theme.colors.default.background.primary,
-    },
+      height: 'auto',
+      margin: 30,
+      marginBottom: 70,
+      marginTop: 90 + Constants.statusBarHeight
+    }
   });
 
   const visibilityChangeHandler = () => {

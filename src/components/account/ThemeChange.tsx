@@ -1,5 +1,8 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '../../custom/Button';
+
+import Button from '../shared/Custom/Button';
+
 import { setTheme } from '../../util/reducers/themeReducer';
 import { ThemeState } from '../../util/types/theme';
 

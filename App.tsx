@@ -3,9 +3,9 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './store';
 import Main from './src/pages/Main';
 import AppBar from './src/components/shared/Navigation/AppBar';
-import NavBar from './src/components/shared/NavBar';
+import NavBar from './src/components/shared/Navigation/NavBar';
 import { StyleSheet, useColorScheme } from 'react-native';
-import View from './src/custom/View';
+import View from './src/components/shared/Custom/View';
 import { NativeRouter } from 'react-router-native';
 import { ThemeState } from './src/util/types/theme';
 import { theme } from './src/theme';
@@ -21,15 +21,15 @@ const Layout: React.FC = () => {
         currentTheme === 'dark'
           ? theme.colors.dark.background.secondary
           : theme.colors.default.background.secondary,
-      justifyContent: 'space-between',
       height: '100%',
-      paddingTop: Constants.statusBarHeight,
+      justifyContent: 'space-between',
+      paddingTop: Constants.statusBarHeight
     },
     navbar: {
-      position: 'absolute',
       bottom: 0,
-      width: '100%',
-    },
+      position: 'absolute',
+      width: '100%'
+    }
   });
 
   const dispatch = useDispatch();
