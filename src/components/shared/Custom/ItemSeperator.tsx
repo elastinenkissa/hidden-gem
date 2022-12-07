@@ -5,8 +5,13 @@ import { useSelector } from 'react-redux';
 import { ThemeState } from '../../../util/types/theme';
 
 import { theme } from '../../../theme';
+import { Style } from '../../../util/types/props';
 
-const ItemSeparator: React.FC = () => {
+interface Props {
+  style?: Style;
+}
+
+const ItemSeparator: React.FC<Props> = ({ style }) => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
 
   const styles = StyleSheet.create({
@@ -15,10 +20,13 @@ const ItemSeparator: React.FC = () => {
         currentTheme === 'dark'
           ? theme.colors.dark.background.secondary
           : theme.colors.default.background.secondary,
-      height: 20
+      height: 30
     }
   });
-  return <View style={styles.separator}></View>;
+
+  const separatorStyles = [styles.separator, style];
+
+  return <View style={separatorStyles}></View>;
 };
 
 export default ItemSeparator;

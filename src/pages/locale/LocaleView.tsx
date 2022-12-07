@@ -4,12 +4,12 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-native';
 
 import View from '../../components/shared/Custom/View';
-import Text from '../../components/shared/Custom/Text';
-import Button from '../../components/shared/Custom/Button';
 
 import { LocaleState } from '../../util/types/locales';
 import { LocaleStateObject } from '../../util/reducers/localeReducer';
 import Header from '../../components/locale/Header';
+import About from '../../components/locale/About';
+import ItemSeparator from '../../components/shared/Custom/ItemSeperator';
 
 const LocaleView: React.FC = () => {
   const { id } = useParams();
@@ -18,38 +18,26 @@ const LocaleView: React.FC = () => {
     (state) => state.locales
   ) as LocaleStateObject[];
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const locale = locales.find((locale) => locale.id === id)!;
+  const locale = locales.find(
+    (locale) => locale.id === id
+  ) as LocaleStateObject;
 
   return (
     <View>
-      <View>
+      <View style={styles.imageContainer}>
         <Image style={styles.image} source={{ uri: locale.coverImage }} />
       </View>
       <Header locale={locale} />
-      {/* 
-      
-      </View>
-      <View>
-        <View style={{ alignItems: 'center' }}>
-          <Text>{locale.description}</Text>
-        </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Text>{`${locale.reviews.length.toString()} ratings`}</Text>
-          <Text>75 (placeholder)</Text>
-          <View>
-            <Text>3 good (placeholder)</Text>
-            <Text>1 neutral (placeholder)</Text>
-            <Text>1 bad (placeholder)</Text>
-          </View>
-        </View>
-      </View> */}
+      <ItemSeparator style={styles.separator} />
+      <About locale={locale} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  image: { height: 150, width: '100%' }
+  imageContainer: { flexDirection: 'row', justifyContent: 'center' },
+  image: { height: 150, width: '100%' },
+  separator: { height: 15 }
 });
 
 export default LocaleView;

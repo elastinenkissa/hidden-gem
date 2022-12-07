@@ -6,13 +6,18 @@ import Text from '../shared/Custom/Text';
 import View from '../shared/Custom/View';
 
 interface Props {
-  locale: LocaleStateObject
+  locale: LocaleStateObject;
 }
 
 const Header: React.FC<Props> = (props) => {
   return (
     <View>
-      <Text>{props.locale.name}</Text>
+      <Text style={styles.title} title>
+        {props.locale.name}
+      </Text>
+      <View style={styles.line}>
+
+      </View>
       <View style={styles.header}>
         <Button>About</Button>
         <Button>Gallery</Button>
@@ -24,7 +29,19 @@ const Header: React.FC<Props> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  header: { flexDirection: 'row', justifyContent: 'center' }
+  line: {
+    width: '100%',
+    borderBottomColor: 'grey',
+    borderStyle: 'solid',
+    borderWidth: 0.2,
+    alignSelf: 'center',
+    flexDirection: 'row'
+  },
+  title: {
+    margin: 20,
+    textAlign: 'center'
+  },
+  header: { flexDirection: 'row', justifyContent: 'space-evenly', margin: 10 }
 });
 
 export default Header;

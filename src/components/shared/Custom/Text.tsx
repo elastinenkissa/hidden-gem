@@ -7,9 +7,11 @@ import { ThemeState } from '../../../util/types/theme';
 
 import { theme } from '../../../theme';
 
+type PropsChildren = string | number;
+
 interface Props {
   style?: Style;
-  children: string;
+  children: PropsChildren | PropsChildren[]
   title?: boolean;
   bold?: boolean;
   ghost?: boolean;

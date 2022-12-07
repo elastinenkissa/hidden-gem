@@ -1,15 +1,14 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Link } from 'react-router-native';
 import { useSelector } from 'react-redux';
 
 import View from '../Custom/View';
-import Button from '../Custom/Button';
 
 import { Style } from '../../../util/types/props';
 import { ThemeState } from '../../../util/types/theme';
 
 import { theme } from '../../../theme';
+import Links from './Links';
 
 interface Props {
   style?: Style;
@@ -34,13 +33,7 @@ const NavBar: React.FC<Props> = () => {
 
   return (
     <View style={styles.container}>
-      <Link to={'/'}>
-        <Button icon="home" />
-      </Link>
-      <Button icon="plus" />
-      <Link to={'/account'}>
-        <Button icon="account" />
-      </Link>
+      <Links />
     </View>
   );
 };

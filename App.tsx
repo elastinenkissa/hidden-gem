@@ -1,16 +1,19 @@
 import React from 'react';
 import { Provider, useDispatch, useSelector } from 'react-redux';
-import store from './store';
+import Constants from 'expo-constants';
+import { StyleSheet, useColorScheme } from 'react-native';
+import { NativeRouter } from 'react-router-native';
+
 import Main from './src/pages/Main';
 import AppBar from './src/components/shared/Navigation/AppBar';
 import NavBar from './src/components/shared/Navigation/NavBar';
-import { StyleSheet, useColorScheme } from 'react-native';
 import View from './src/components/shared/Custom/View';
-import { NativeRouter } from 'react-router-native';
+
 import { ThemeState } from './src/util/types/theme';
-import { theme } from './src/theme';
 import { setTheme } from './src/util/reducers/themeReducer';
-import Constants from 'expo-constants';
+import store from './store';
+
+import { theme } from './src/theme';
 
 const Layout: React.FC = () => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
