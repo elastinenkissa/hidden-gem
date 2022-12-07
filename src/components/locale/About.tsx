@@ -5,6 +5,7 @@ import Text from '../shared/Custom/Text';
 import View from '../shared/Custom/View';
 
 import { LocaleStateObject } from '../../util/reducers/localeReducer';
+import { theme } from '../../theme';
 
 interface Props {
   locale: LocaleStateObject;
@@ -51,7 +52,7 @@ const About: React.FC<Props> = (props) => {
       width: ratioDimensions,
       borderStyle: 'solid',
       borderWidth: 2,
-      borderColor: 'cyan',
+      borderColor: theme.colors.global.stats.border,
       borderRadius: ratioDimensions / 2
     }
   });

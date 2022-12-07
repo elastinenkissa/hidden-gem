@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     margin: 20,
     textAlign: 'center'
   },
-  header: { flexDirection: 'row', justifyContent: 'space-evenly', margin: 10 }
+  header: { flexDirection: 'row', justifyContent: 'space-evenly', margin: 5 }
 });
 
 export default Header;

@@ -24,6 +24,11 @@ export const theme: Theme = {
     },
   },
   colors: {
+    global: {
+      stats: {
+        border: 'cyan'
+      }
+    },
     default: {
       text: '#20232a',
       background: {
