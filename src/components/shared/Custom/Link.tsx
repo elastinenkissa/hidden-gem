@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-native';
-import Button from '../Custom/Button';
+
+import Button from './Button';
 
 interface Props {
   to: string;
-  icon: string;
+  children?: string;
+  icon?: string;
 }
 
 const Link: React.FC<Props> = (props) => {
@@ -14,7 +16,11 @@ const Link: React.FC<Props> = (props) => {
     navigate(props.to);
   };
 
-  return <Button icon={props.icon} onPress={navigateHandler} />;
+  return (
+    <Button icon={props.icon} onPress={navigateHandler}>
+      {props.children}
+    </Button>
+  );
 };
 
 export default Link;

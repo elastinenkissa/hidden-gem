@@ -1,28 +1,21 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { LocaleStateObject } from '../../util/reducers/localeReducer';
-import Button from '../shared/Custom/Button';
+import { StyleSheet, View as NativeView } from 'react-native';
+
 import Text from '../shared/Custom/Text';
 import View from '../shared/Custom/View';
 
-interface Props {
-  locale: LocaleStateObject;
-}
+import { LocaleProps } from '../../util/types/locales';
+import Links from './Links';
 
-const Header: React.FC<Props> = (props) => {
+const Header: React.FC<LocaleProps> = (props) => {
   return (
     <View>
       <Text style={styles.title} title>
         {props.locale.name}
       </Text>
-      <View style={styles.line}>
-
-      </View>
+      <NativeView style={styles.line}></NativeView>
       <View style={styles.header}>
-        <Button>About</Button>
-        <Button>Gallery</Button>
-        <Button>Reviews</Button>
-        <Button>Map</Button>
+        <Links locale={props.locale} />
       </View>
     </View>
   );

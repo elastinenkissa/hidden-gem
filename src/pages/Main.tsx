@@ -12,7 +12,7 @@ const Main: React.FC = () => {
       <Routes>
         <Route path="/" element={<Locales />} />
         <Route path="/account" element={<AccountSettings />} />
-        <Route path="/locales/:id" element={<LocaleView />} />
+        <Route path="/locales/:id/*" element={<LocaleView />} />
         <Route path="*" element={<Navigate to={'/'} replace />} />
       </Routes>
     </View>

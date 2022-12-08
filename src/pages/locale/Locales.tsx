@@ -59,9 +59,7 @@ const Locales: React.FC = () => {
     <FlatList
       data={locales}
       ItemSeparatorComponent={ItemSeparator}
-      renderItem={({ item }: { item: LocaleStateObject }) => (
-        <LocaleItem item={item} />
-      )}
+      renderItem={({ item }) => <LocaleItem item={item} />}
       keyExtractor={(item) => item.id}
       ListEmptyComponent={NoPlaces}
     />

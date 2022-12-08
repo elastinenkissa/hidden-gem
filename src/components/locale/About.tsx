@@ -4,14 +4,11 @@ import { StyleSheet } from 'react-native';
 import Text from '../shared/Custom/Text';
 import View from '../shared/Custom/View';
 
-import { LocaleStateObject } from '../../util/reducers/localeReducer';
+import { LocaleProps } from '../../util/types/locales';
+
 import { theme } from '../../theme';
 
-interface Props {
-  locale: LocaleStateObject;
-}
-
-const About: React.FC<Props> = (props) => {
+const About: React.FC<LocaleProps> = (props) => {
   const goodRatings = props.locale.reviews.filter(
     (review) => review.rating === 'good'
   ).length;
@@ -67,7 +64,7 @@ const About: React.FC<Props> = (props) => {
           props.locale.reviews.length === 1 ? 'review' : 'reviews'
         }`}</Text>
         <View style={styles.ratio}>
-          <Text>{ratingsRatio}</Text>
+          <Text>{ratingsRatio * 100 || 0}</Text>
         </View>
         <View>
           <Text>{goodRatings} good</Text>

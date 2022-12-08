@@ -4,12 +4,12 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-native';
 
 import View from '../../components/shared/Custom/View';
+import Header from '../../components/locale/Header';
+import ItemSeparator from '../../components/shared/Custom/ItemSeperator';
 
 import { LocaleState } from '../../util/types/locales';
 import { LocaleStateObject } from '../../util/reducers/localeReducer';
-import Header from '../../components/locale/Header';
-import About from '../../components/locale/About';
-import ItemSeparator from '../../components/shared/Custom/ItemSeperator';
+import Info from './Info';
 
 const LocaleView: React.FC = () => {
   const { id } = useParams();
@@ -29,7 +29,7 @@ const LocaleView: React.FC = () => {
       </View>
       <Header locale={locale} />
       <ItemSeparator style={styles.separator} />
-      <About locale={locale} />
+      <Info locale={locale} />
     </View>
   );
 };
