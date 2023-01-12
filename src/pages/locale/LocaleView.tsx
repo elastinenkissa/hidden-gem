@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-native';
+import { useLocation, useParams } from 'react-router-native';
 
 import View from '../../components/shared/Custom/View';
 import Header from '../../components/locale/Header';
@@ -13,7 +13,7 @@ import Info from './Info';
 
 const LocaleView: React.FC = () => {
   const { id } = useParams();
-
+  
   const locales = useSelector<LocaleState>(
     (state) => state.locales
   ) as LocaleStateObject[];

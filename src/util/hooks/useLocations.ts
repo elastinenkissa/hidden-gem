@@ -28,7 +28,7 @@ export const useLocations = () => {
     setSearchQuery(query);
     setCities(
       countries.filter((country) =>
-        country?.capital?.toLowerCase().startsWith(query.toLocaleLowerCase())
+        country?.capital?.toLowerCase().startsWith(query.toLowerCase())
       )
     );
   };

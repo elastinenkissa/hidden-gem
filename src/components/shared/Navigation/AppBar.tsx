@@ -14,14 +14,38 @@ import { theme } from '../../../theme';
 
 const AppBar: React.FC = () => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
+  const [backTimes, setBackTimes] = React.useState<number>(-1);
 
   const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    if (
+      pathname.endsWith('gallery') ||
+      pathname.endsWith('reviews') ||
+      pathname.endsWith('map')
+    ) {
+      setBackTimes((backTime) => backTime - 1);
+    } else {
+      setBackTimes(-1);
+    }
+    console.log(backTimes);
+  }, [pathname]);
 
   const back = useNavigate();
 
   const location = useSelector<LocationState>(
     (state) => state.location
   ) as string;
+
+  const [visible, setVisible] = React.useState<boolean>(false);
+
+  const backHandler = () => {
+    back(backTimes);
+  };
+
+  const visibilityChangeHandler = () => {
+    setVisible((prevVisible) => !prevVisible);
+  };
 
   const styles = StyleSheet.create({
     container: {
@@ -40,16 +64,6 @@ const AppBar: React.FC = () => {
       fontSize: 18
     }
   });
-
-  const [visible, setVisible] = React.useState<boolean>(false);
-
-  const backHandler = () => {
-    back(-1);
-  };
-
-  const visibilityChangeHandler = () => {
-    setVisible((prevVisible) => !prevVisible);
-  };
 
   return (
     <View style={styles.container}>
