@@ -20,7 +20,7 @@ interface Props {
 
 const Text: React.FC<Props> = ({ style, ...props }) => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
-
+ 
   const textStyle = [
     styles.default,
     currentTheme === 'dark' ? styles.dark : styles.default,

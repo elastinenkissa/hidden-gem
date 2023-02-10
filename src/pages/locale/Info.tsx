@@ -7,7 +7,7 @@ import Map from '../../components/locale/Map';
 import Reviews from '../../components/locale/Reviews';
 
 import { LocaleProps } from '../../util/types/locales';
-
+ 
 const Info: React.FC<LocaleProps> = (props) => {
   return (
     <Routes>

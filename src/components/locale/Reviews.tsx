@@ -18,7 +18,7 @@ const Review: React.FC<ReviewProps> = (props) => {
     </View>
   );
 };
-
+ 
 const Reviews: React.FC<LocaleProps> = (props) => {
   return (
     <FlatList

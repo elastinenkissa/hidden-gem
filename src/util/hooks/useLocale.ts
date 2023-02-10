@@ -9,7 +9,7 @@ export const useLocale = () => {
   const allLocales = useSelector<LocaleState>(
     (state) => state.locales
   ) as LocaleStateObject[];
-
+ 
   const locales = allLocales.filter((locale) => locale.city === location);
 
   return locales;

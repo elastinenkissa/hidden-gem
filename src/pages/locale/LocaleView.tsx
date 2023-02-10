@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-native';
+import { useParams } from 'react-router-native';
 
 import View from '../../components/shared/Custom/View';
 import Header from '../../components/locale/Header';

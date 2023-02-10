@@ -15,7 +15,7 @@ import { theme } from '../../theme';
 interface LocaleItemProps {
   item: LocaleStateObject;
 }
-
+ 
 const LocaleItem: React.FC<LocaleItemProps> = (props) => {
   const imageDimensions = 100;
   const styles = StyleSheet.create({

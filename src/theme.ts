@@ -28,7 +28,7 @@ export const theme: Theme = {
     //   stats: {
     //     border: 'cyan'
     //   }
-    // },
+    // }, 
     default: {
       text: '#20232a',
       background: {

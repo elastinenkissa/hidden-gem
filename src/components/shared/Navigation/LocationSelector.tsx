@@ -40,7 +40,7 @@ const LocationList: React.FC<ListProps> = (props) => {
   ) as string;
 
   const { cities, search, searchQuery } = useLocations();
-
+ 
   const locationSelectHandler = (city: string): void => {
     dispatch(setLocation(city));
     props.onSelect();

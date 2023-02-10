@@ -9,3 +9,4 @@ const Map: React.FC = () => {
 };
 
 export default Map;
+ 

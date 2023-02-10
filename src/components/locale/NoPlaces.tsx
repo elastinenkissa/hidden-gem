@@ -15,7 +15,7 @@ const NoPlaces: React.FC = () => {
       justifyContent: 'center',
     },
   });
-
+ 
   const location = useSelector<LocationState>((state) => state.location);
 
   return (

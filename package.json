@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "eslint ."
-  },
+  }, 
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
     "@reduxjs/toolkit": "^1.9.0",

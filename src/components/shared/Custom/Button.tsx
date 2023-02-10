@@ -24,7 +24,7 @@ const Button: React.FC<Props> = ({ style, ...props }) => {
         currentTheme === 'dark'
           ? theme.colors.dark.text
           : theme.colors.default.text
-      }
+      } 
       {...props}
       style={buttonStyles}
     >

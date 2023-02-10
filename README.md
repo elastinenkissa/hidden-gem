@@ -5,3 +5,4 @@
 4. Add possibility of adding locales
 5. Add possibility of rating and reviewing locales
 6. Create a server (REST API)
+ 

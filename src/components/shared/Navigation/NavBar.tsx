@@ -37,5 +37,5 @@ const NavBar: React.FC<Props> = () => {
     </View>
   );
 };
-
+ 
 export default NavBar;

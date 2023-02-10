@@ -11,7 +11,7 @@ interface Props {
 
 const Link: React.FC<Props> = (props) => {
   const navigate = useNavigate();
-
+ 
   const navigateHandler = () => {
     navigate(props.to);
   };

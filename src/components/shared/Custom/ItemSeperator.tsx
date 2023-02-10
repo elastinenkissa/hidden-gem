@@ -25,7 +25,7 @@ const ItemSeparator: React.FC<Props> = ({ style }) => {
   });
 
   const separatorStyles = [styles.separator, style];
-
+ 
   return <View style={separatorStyles}></View>;
 };
 

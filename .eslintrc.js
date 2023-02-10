@@ -34,7 +34,7 @@ module.exports = {
     quotes: ['error', 'single'],
     indent: ['error', 2],
     '@typescript-eslint/no-explicit-any': 'off'
-  },
+  }, 
   settings: {
     react: {
       version: 'detect'

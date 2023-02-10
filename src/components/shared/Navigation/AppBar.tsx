@@ -11,7 +11,7 @@ import { ThemeState } from '../../../util/types/theme';
 import { LocationState } from '../../../util/types/cities';
 
 import { theme } from '../../../theme';
-
+ 
 const AppBar: React.FC = () => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
   const [backTimes, setBackTimes] = React.useState<number>(-1);

@@ -5,7 +5,7 @@ import Button from '../shared/Custom/Button';
 
 import { setTheme } from '../../util/reducers/themeReducer';
 import { ThemeState } from '../../util/types/theme';
-
+ 
 const ThemeChange: React.FC = () => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
 

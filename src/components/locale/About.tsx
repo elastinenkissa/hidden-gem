@@ -5,7 +5,7 @@ import Text from '../shared/Custom/Text';
 import View from '../shared/Custom/View';
 
 import { LocaleProps } from '../../util/types/locales';
-
+ 
 import { theme } from '../../theme';
 
 const About: React.FC<LocaleProps> = (props) => {

@@ -20,7 +20,7 @@ const Header: React.FC<LocaleProps> = (props) => {
     </View>
   );
 };
-
+ 
 const styles = StyleSheet.create({
   line: {
     width: '100%',

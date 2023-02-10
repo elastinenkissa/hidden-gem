@@ -13,7 +13,7 @@ interface Props {
   ghost?: boolean;
   [prop: string]: Spread;
 }
-
+ 
 const View: React.FC<Props> = ({ style, ...props }) => {
   const currentTheme = useSelector<ThemeState>((state) => state.theme);
 

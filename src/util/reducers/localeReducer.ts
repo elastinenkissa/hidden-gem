@@ -97,7 +97,7 @@ const initialLocales: LocaleStateObject[] = [
     reviews: []
   }
 ];
-
+ 
 const localeSlice = createSlice({
   name: 'locales',
   initialState: initialLocales,

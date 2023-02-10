@@ -14,7 +14,7 @@ export const useLocations = () => {
     const fetchedLocations = await getLocations();
     setCountries(fetchedLocations);
   };
-
+ 
   React.useEffect(() => {
     const abortCtrl = new AbortController();
     getCountries();

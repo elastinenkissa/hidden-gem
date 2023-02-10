@@ -12,7 +12,7 @@ const Links: React.FC<LocaleProps> = (props) => {
       <Link to={`/locales/${props.locale.id}/reviews`}>Reviews</Link>
       <Link to={`/locales/${props.locale.id}/map`}>Map</Link>
     </>
-  );
+  ); 
 };
 
 export default Links;

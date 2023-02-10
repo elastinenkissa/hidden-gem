@@ -42,7 +42,7 @@ const Layout: React.FC = () => {
   React.useEffect(() => {
     dispatch(setTheme(identifiedTheme));
   }, []);
-
+ 
   return (
     <View style={styles.container}>
       <View>

@@ -9,3 +9,4 @@ export interface LocaleProps {
 }
 
 export type LocalesType = Array<LocaleStateObject>;
+ 

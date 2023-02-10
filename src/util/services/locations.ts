@@ -12,3 +12,4 @@ const getLocations = async () => {
 };
 
 export { getLocations };
+ 
